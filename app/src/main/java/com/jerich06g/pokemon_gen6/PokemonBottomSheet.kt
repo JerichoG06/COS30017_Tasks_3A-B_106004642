@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
+// It's a Fragment not an activity that lives on-top of another activity
 class PokemonBottomSheet : BottomSheetDialogFragment() {
     companion object {
         private const val ARG_NAME = "name"
@@ -14,8 +15,10 @@ class PokemonBottomSheet : BottomSheetDialogFragment() {
         private const val ARG_EVO = "evoLevel"
         private const val ARG_LOCATION = "location"
 
+        // Factory method; builds and returns the configured object
         fun newInstance(pokemon: Pokemon): PokemonBottomSheet {
-            val sheet = PokemonBottomSheet()
+            val sheet = PokemonBottomSheet() // Fragment created
+            // Bundle arguments
             sheet.arguments = Bundle().apply {
                 putString(ARG_NAME, pokemon.name)
                 putString(ARG_TYPE, pokemon.type)
